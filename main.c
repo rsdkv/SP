@@ -1,27 +1,58 @@
 #include <stdio.h>
 
-//создание типа структуры и выделение памяти
-typedef struct {
+// как передавать данные через консоль
+
+
+
+typedef struct {            //создание типа структуры и выделение памяти
     char name[20];
     char eduBool[16];
 } Disciplines;
-// union выделяет кол-во памяти под самый большой тип данных
-typedef union {
-    char name[20];
-    char size[36];
-} MyUnion;
+
+
+typedef union {             // union выделяет кол-во памяти под самый большой тип данных
+    char Disciplines;
+    char bytes[sizeof(Disciplines)];
+} MyUnions;
+
+
+//xor
+unsigned printBinary(char digit) {
+    char y = digit ^ 15;//15 == 00001111
+    return 0;
+}
+
+unsigned serialization(unsigned char byte) {
+    for (
+            int i = 0;
+            i < sizeof(Disciplines); ++i) {
+//unsigned y = x^15; // 15=00001111 - младшая половина
+//из 10 в 2 , xor
+
+    }
+}
 
 
 int main(void) {
     Disciplines math;  //инициализация структуры
-    //math.name=() "mathem", "1111000011110000";
-    //mathem 1111000011110000
-    scanf("%d", &(math.name));
-    scanf("%d", &(math.eduBool));
 
-    //union MyUnion u = {math.name};
+    MyUnions u = {};
 
-    printf("%d", sizeof(math));
-    printf("\n name ", math.name);
+//union MyUnion u = {math.name};
+    printBinary(24);
     return 0;
 }
+
+//
+//FILE *ptrFile = fopen("file.txt", "r");
+//char mystring[100];
+//
+//if (ptrFile == NULL) perror("Ошибка открытия файла");
+//else
+//{
+//if (
+//fgets(mystring,
+//100, ptrFile) != NULL) // считать символы из файла
+//puts(mystring);  // вывод на экран
+//fclose (ptrFile);
+//}
