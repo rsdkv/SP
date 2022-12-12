@@ -67,6 +67,10 @@ int main(int argc, char *argv[]) {
     printf("Everything is awesome! Success.");
     return 0;
 }
+// gcc -o main encrypt.c
+
+
+
 
 //#include <stdio.h>
 //#include <locale.h>
