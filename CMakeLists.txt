@@ -3,4 +3,4 @@ project(SP C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(SP main.c)
+add_executable(SP encrypt.c)

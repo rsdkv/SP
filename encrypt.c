@@ -32,8 +32,20 @@ int main(int argc, char *argv[]) {
     printf("Warning. For each item name only the first 20 characters will be used\n");
     printf("Please, Enter the name of the discipline within 20 characters\n");
     scanf("%20s", u1.subject.name);
-    printf("Please, type a patronymic of the person (no more than 20!)\n");
-    scanf("%s", u1.subject.studying);
+    printf("Please, type a 16 logical values indicating whether the discipline is taught in each of the modules.\n");
+    for (int i = 0; i < sizeof(u1.subject.studying); ++i) {
+        int x = -1;
+        while (x != 0 && x != 1) {
+            scanf("%d", &x);
+            printf("Вы ввели: %d\n", x);
+            if (x == 0 || x == 1) {
+                u1.subject.studying[i] = (char) x;
+            } else printf("The wrong number, please write 0 or 1");
+            return -1;
+        }
+    }
+
+    //scanf("%s", u1.subject.studying);
     printf("Please, type an id of the person\n");
 //    while (1) {
 //        scanf("%ld", &u1.person.id);
@@ -55,7 +67,6 @@ int main(int argc, char *argv[]) {
     printf("Everything is awesome! Success.");
     return 0;
 }
-
 
 //#include <stdio.h>
 //#include <locale.h>
